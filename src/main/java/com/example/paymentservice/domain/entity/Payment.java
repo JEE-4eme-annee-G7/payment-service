@@ -3,26 +3,36 @@ package com.example.paymentservice.domain.entity;
 import java.util.Objects;
 
 public class Payment {
-    private final Buyer buyer;
-    private final String checkout_id;
-    private final Double amount;
+    private Buyer buyer;
+    private String checkout_id;
+    private Double amount;
 
-    public Payment(Buyer buyer, String checkout_id, Double amount) {
-        this.buyer = buyer;
-        this.checkout_id = checkout_id;
-        this.amount = amount;
-    }
 
     public Buyer getBuyer() {
         return buyer;
+    }
+
+    public Payment setBuyer(Buyer buyer) {
+        this.buyer = buyer;
+        return this;
     }
 
     public String getCheckout_id() {
         return checkout_id;
     }
 
+    public Payment setCheckout_id(String checkout_id) {
+        this.checkout_id = checkout_id;
+        return this;
+    }
+
     public Double getAmount() {
         return amount;
+    }
+
+    public Payment setAmount(Double amount) {
+        this.amount = amount;
+        return this;
     }
 
     @Override

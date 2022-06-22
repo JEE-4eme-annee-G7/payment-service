@@ -1,4 +1,4 @@
-package CreditCard;
+package com.example.paymentservice.CreditCard;
 
 import com.example.paymentservice.domain.entity.Buyer;
 import com.example.paymentservice.domain.entity.CreditCard;

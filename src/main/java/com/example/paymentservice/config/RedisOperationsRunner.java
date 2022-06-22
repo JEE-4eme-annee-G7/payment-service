@@ -27,10 +27,10 @@ public class RedisOperationsRunner implements CommandLineRunner {
                 .setLastname("bervin")
                 .setCreditCard(creditCard);
 
+        var payment = new Payment().setBuyer(buyer).setCheckout_id("1").setAmount(12.3);
+        paymentDAO.savePayment(payment, PaymentStatus.DONE);
 
-        paymentDAO.savePayment(new Payment(buyer, "1", 12.3), PaymentStatus.DONE);
-
-        paymentDAO.update(new Payment(buyer, "1", 28.5), PaymentStatus.DONE);
+        paymentDAO.update(payment.setBuyer(buyer).setCheckout_id("1").setAmount(28.5), PaymentStatus.DONE);
 
         paymentDAO.delete("1");
 
