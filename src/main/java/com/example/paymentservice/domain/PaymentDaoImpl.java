@@ -11,8 +11,6 @@ import javax.annotation.Resource;
 public class PaymentDaoImpl implements PaymentDAO{
     private final String hashReference = "Payment";
 
-
-
     @Resource(name = "redisTemplate")
     private HashOperations<String, String, PaymentStatus> hashOperations;
 

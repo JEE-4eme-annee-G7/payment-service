@@ -1,4 +1,4 @@
-package com.example.paymentservice.domain;
+package com.example.paymentservice.domain.service;
 
 import com.example.paymentservice.domain.entity.Payment;
 import org.springframework.stereotype.Service;

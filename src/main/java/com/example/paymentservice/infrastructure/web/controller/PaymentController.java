@@ -1,8 +1,8 @@
-package com.example.paymentservice.controller;
+package com.example.paymentservice.infrastructure.web.controller;
 
 import com.example.paymentservice.domain.PaymentDaoRedisImpl;
-import com.example.paymentservice.domain.PaymentService;
-import com.example.paymentservice.domain.PaymentValidationService;
+import com.example.paymentservice.domain.service.PaymentService;
+import com.example.paymentservice.domain.service.PaymentValidationService;
 import com.example.paymentservice.domain.entity.Payment;
 import com.example.paymentservice.domain.entity.PaymentStatus;
 import org.springframework.http.HttpStatus;
