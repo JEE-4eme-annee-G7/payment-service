@@ -2,8 +2,10 @@ package com.example.paymentservice.domain;
 
 import com.example.paymentservice.domain.entity.Payment;
 import com.example.paymentservice.domain.entity.PaymentStatus;
+import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
+@Service
 public class PaymentDaoRedisImpl implements PaymentDAO{
 
     private final Jedis jedis = new Jedis();
