@@ -31,17 +31,17 @@ public class CreditCardValidationServiceTest {
     }
 
     @Test
-    void false_when_number_greater_than_16(){
-        creditCard.setNumber("134398270925460983675463");
-        assertTrue(creditCardValidationService.numberValidation(creditCard));
+    void false_when_number_different_than_16(){
+        creditCard.setNumber("5463");
+        assertFalse(creditCardValidationService.numberValidation(creditCard));
     }
 
     @Test
     void false_when_cryptogram_is_different_from_3(){
-        creditCard.setCryptogram("124");
+        creditCard.setCryptogram("1242");
         assertFalse(creditCardValidationService.cryptogramValidation(creditCard));
     }
-    
+
 
     @Test
     void false_when_buyerLastname_and_ownerLastname_are_different(){

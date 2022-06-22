@@ -9,11 +9,11 @@ public class CreditCardValidationService {
 
 
     public Boolean numberValidation(CreditCard creditCard){
-        return creditCard.getNumber().length() != 16;
+        return creditCard.getNumber().length() == 16;
     }
 
     public Boolean cryptogramValidation(CreditCard creditCard){
-        return creditCard.getCryptogram().length() != 3;
+        return creditCard.getCryptogram().length() == 3;
     }
 
     public Boolean ownerValidation(CreditCard creditCard, Buyer buyer){
