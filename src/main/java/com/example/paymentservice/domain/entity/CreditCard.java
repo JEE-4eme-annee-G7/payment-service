@@ -1,16 +1,13 @@
 package com.example.paymentservice.domain.entity;
 
+import java.util.Objects;
+
 public class CreditCard {
 
-    String number;
-    String cryptogram;
-    String owner;
+    private String number;
+    private String cryptogram;
+    private String ownerLastname;
 
-    public CreditCard(String number, String cryptogram, String owner) {
-        this.number = number;
-        this.cryptogram = cryptogram;
-        this.owner = owner;
-    }
 
     public String getNumber() {
         return number;
@@ -30,12 +27,34 @@ public class CreditCard {
         return this;
     }
 
-    public String getOwner() {
-        return owner;
+    public String getOwnerLastname() {
+        return ownerLastname;
     }
 
-    public CreditCard setOwner(String owner) {
-        this.owner = owner;
+    public CreditCard setOwnerLastname(String ownerLastname) {
+        this.ownerLastname = ownerLastname;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "CreditCard{" +
+                "number='" + number + '\'' +
+                ", cryptogram='" + cryptogram + '\'' +
+                ", owner='" + ownerLastname + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CreditCard that = (CreditCard) o;
+        return Objects.equals(number, that.number) && Objects.equals(cryptogram, that.cryptogram) && Objects.equals(ownerLastname, that.ownerLastname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(number, cryptogram, ownerLastname);
     }
 }

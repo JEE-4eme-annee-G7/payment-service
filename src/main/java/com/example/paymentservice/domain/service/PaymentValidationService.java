@@ -8,6 +8,7 @@ import java.util.Random;
 @Service
 public class PaymentValidationService {
 
+
     public boolean isValid(Payment payment){
         Random random = new Random();
         return random.nextBoolean();

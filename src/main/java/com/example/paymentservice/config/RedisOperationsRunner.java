@@ -17,8 +17,15 @@ public class RedisOperationsRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        var creditCard = new CreditCard("1234567890", "123", "Kélyan");
-        var buyer = new Buyer(1,  "kbervin@myges.fr", "Kélyan", "BERVIN", creditCard);
+        var creditCard = new CreditCard()
+                .setNumber("3849605736683950")
+                .setCryptogram("900")
+                .setOwnerLastname("bervin");;
+        var buyer = new Buyer()
+                .setId(1).setEmail("kelyan.bervin@gmail.com")
+                .setFirstname("kelyan")
+                .setLastname("bervin")
+                .setCreditCard(creditCard);
 
 
         paymentDAO.savePayment(new Payment(buyer, "1", 12.3), PaymentStatus.DONE);

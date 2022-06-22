@@ -1,21 +1,16 @@
 package com.example.paymentservice.domain.entity;
 
+import java.util.Objects;
+
 public class Buyer {
 
     private int id;
     private String email;
     private String firstname;
     private String lastname;
-
     private CreditCard creditCard;
 
-    public Buyer(int id, String email, String firstname, String lastname, CreditCard creditCard) {
-        this.id = id;
-        this.email = email;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.creditCard = creditCard;
-    }
+
 
     public int getId() {
         return id;
@@ -60,5 +55,29 @@ public class Buyer {
     public Buyer setCreditCard(CreditCard creditCard) {
         this.creditCard = creditCard;
         return this;
+    }
+
+    @Override
+    public String toString() {
+        return "Buyer{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", creditCard=" + creditCard +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Buyer buyer = (Buyer) o;
+        return id == buyer.id && Objects.equals(email, buyer.email) && Objects.equals(firstname, buyer.firstname) && Objects.equals(lastname, buyer.lastname) && Objects.equals(creditCard, buyer.creditCard);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, email, firstname, lastname, creditCard);
     }
 }

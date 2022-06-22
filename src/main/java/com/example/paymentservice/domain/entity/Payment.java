@@ -1,5 +1,7 @@
 package com.example.paymentservice.domain.entity;
 
+import java.util.Objects;
+
 public class Payment {
     private final Buyer buyer;
     private final String checkout_id;
@@ -21,5 +23,27 @@ public class Payment {
 
     public Double getAmount() {
         return amount;
+    }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "buyer=" + buyer +
+                ", checkout_id='" + checkout_id + '\'' +
+                ", amount=" + amount +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Payment payment = (Payment) o;
+        return Objects.equals(buyer, payment.buyer) && Objects.equals(checkout_id, payment.checkout_id) && Objects.equals(amount, payment.amount);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(buyer, checkout_id, amount);
     }
 }
