@@ -1,5 +1,6 @@
 package com.example.paymentservice.domain.entity;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class CreditCard {
@@ -7,6 +8,7 @@ public class CreditCard {
     private String number;
     private String cryptogram;
     private String ownerLastname;
+    private Date expirationDate;
 
 
     public String getNumber() {
@@ -36,6 +38,15 @@ public class CreditCard {
         return this;
     }
 
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public CreditCard setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+        return this;
+    }
+
     @Override
     public String toString() {
         return "CreditCard{" +
@@ -44,6 +55,8 @@ public class CreditCard {
                 ", owner='" + ownerLastname + '\'' +
                 '}';
     }
+
+    
 
     @Override
     public boolean equals(Object o) {

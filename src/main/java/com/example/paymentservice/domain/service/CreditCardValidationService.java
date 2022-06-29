@@ -4,6 +4,7 @@ import com.example.paymentservice.domain.entity.Buyer;
 import com.example.paymentservice.domain.entity.CreditCard;
 import org.springframework.stereotype.Component;
 
+import java.util.Date;
 import java.util.Objects;
 
 @Component
@@ -20,6 +21,10 @@ public class CreditCardValidationService {
 
     public Boolean ownerValidation(CreditCard creditCard, Buyer buyer){
         return Objects.equals(creditCard.getOwnerLastname(), buyer.getLastname());
+    }
+    //TODO : A tester
+    public Boolean expirationDateValidation(CreditCard creditCard){
+        return !creditCard.getExpirationDate().before(new Date());
     }
 
 
