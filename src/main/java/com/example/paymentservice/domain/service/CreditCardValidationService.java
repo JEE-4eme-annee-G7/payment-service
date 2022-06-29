@@ -2,9 +2,11 @@ package com.example.paymentservice.domain.service;
 
 import com.example.paymentservice.domain.entity.Buyer;
 import com.example.paymentservice.domain.entity.CreditCard;
+import org.springframework.stereotype.Component;
 
 import java.util.Objects;
 
+@Component
 public class CreditCardValidationService {
 
 
