@@ -22,15 +22,18 @@ public class CreditCardValidationService {
     public Boolean ownerValidation(CreditCard creditCard, Buyer buyer){
         return Objects.equals(creditCard.getOwnerLastname(), buyer.getLastname());
     }
-    //TODO : A tester
+
     public Boolean expirationDateValidation(CreditCard creditCard){
+        if (creditCard.getExpirationDate() == null)
+            return false;
         return !creditCard.getExpirationDate().before(new Date());
     }
 
 
     public Boolean isValid(CreditCard creditCard, Buyer buyer){
-        return !numberValidation(creditCard)
-                || cryptogramValidation(creditCard)
-                || ownerValidation(creditCard, buyer);
+        return numberValidation(creditCard)
+                && cryptogramValidation(creditCard)
+                && ownerValidation(creditCard, buyer)
+                && expirationDateValidation(creditCard);
     }
 }

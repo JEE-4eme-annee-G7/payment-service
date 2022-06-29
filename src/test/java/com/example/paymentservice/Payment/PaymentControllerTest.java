@@ -12,6 +12,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.UUID;
 
 import static io.restassured.RestAssured.given;
@@ -36,15 +38,16 @@ public class PaymentControllerTest {
         RestAssured.port = port;
         RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
 
+
+        creditCard_valid.setNumber("2568295061084754")
+                .setCryptogram("900")
+                .setOwnerLastname("bervin")
+                .setExpirationDate(new Date(2025, Calendar.DECEMBER, 25));
+
         buyer_valid.setId(1).setEmail("kelyan.bervin@gmail.com")
                 .setFirstname("kelyan")
                 .setLastname("bervin")
                 .setCreditCard(creditCard_valid);
-
-
-        creditCard_valid.setNumber("2568295061084754")
-                .setCryptogram("900")
-                .setOwnerLastname("bervin");
 
         paymentRequest_valid.setBuyer(buyer_valid)
                 .setCheckout_id(UUID.randomUUID().toString())
@@ -65,7 +68,6 @@ public class PaymentControllerTest {
         paymentRequest_not_valid.setBuyer(buyer_not_valid)
                 .setCheckout_id(UUID.randomUUID().toString())
                 .setAmount(199.95);
-
     }
 
 
@@ -87,7 +89,7 @@ public class PaymentControllerTest {
         given()
                 .contentType(ContentType.JSON)
                 .when()
-                .body(paymentRequest_valid)
+                .body(paymentRequest_not_valid)
                 .post("/payment")
                 .then()
                 .statusCode(400);
